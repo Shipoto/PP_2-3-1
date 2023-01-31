@@ -8,8 +8,6 @@ public class Car {
     public Car() {
     }
 
-
-
     public Car(String model, String color, int id) {
         this.model = model;
         this.color = color;

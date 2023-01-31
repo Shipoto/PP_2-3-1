@@ -36,7 +36,6 @@ public class CarDAO {
     public void update(int id, Car updatedCar) {
         Car carForUpdate = show(id);
 
-//        carForUpdate.setId(updatedCar.getId());
         carForUpdate.setModel(updatedCar.getModel());
         carForUpdate.setColor(updatedCar.getColor());
     }

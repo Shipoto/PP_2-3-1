@@ -7,23 +7,9 @@
 </head>
 <body>
 /new
-<!--<form:form action="create" model="car">-->
-<!--        Model <form:input path="model"/>-->
-<!--        <br><br>-->
-<!--        Color <form:input path="color"/>-->
-<!--        <br><br>-->
-<!--        Year <form:input path="year"/>-->
-<!--        <br><br>-->
 
-<!--        <input type="submit" value="Enter">-->
-<!--</form:form>-->
-
-
-
-<!--<form th:method="POST" th:action="@{/cars}" th:object="@{car}">-->
 <form th:method="POST" th:action="@{/}" th:object="${car}" >
-<!--<form action="#" th:action="@{/cars}" th:object="${car}" method="post">-->
-<!--<form action="#" th:action="@{/cars}" th:object="@{car}">-->
+
     <h2>Create new car</h2>
 
     <label for="model">Type model: </label>
@@ -32,11 +18,8 @@
     <label for="color">Type color: </label>
     <input type="text" th:field="*{color}" id="color"/>
     <br/>
-<!--    <label for="id">Type id: </label>-->
-<!--    <input type="text" th:field="*{id}" id="id"/>-->
     <br/>
     <input type="submit" value="Create!"/>
-<!--    <input type="submit" value="Create!"/>-->
 
 </form>
 </body>

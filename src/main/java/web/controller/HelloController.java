@@ -16,10 +16,8 @@ public class HelloController {
 
 //	@Autowired
 	public HelloController(CarDAO carDAO) {
-
 		this.carDAO = carDAO;
 	}
-
 
 	@GetMapping(value = "/")
 	public String printWelcome(ModelMap model) {
@@ -32,15 +30,8 @@ public class HelloController {
 	}
 
 	@GetMapping("/cars")
-//	public String printCar(HttpServletRequest request) {
 	public String printDemandedCars(@RequestParam(value = "count", required = false) Integer count, Model model) {
-//		String name = request.getParameter("request");
-
-//		int countInt = count.intValue();
-//		model.addAttribute("message", name);
 		model.addAttribute("cars", carDAO.index());
-
-		System.out.println(count);
 		return "cars";
 	}
 
@@ -51,30 +42,16 @@ public class HelloController {
 	}
 
 	@GetMapping("/new")
-//	public String newCar(@ModelAttribute("car") Car car) {
 	public String newCar(Model model) {
 		model.addAttribute("car", new Car());
-//		Car car = new Car();
-//		model.addAttribute("car", car);
 		return "new";
 	}
 
 	@PostMapping()
 	public String create(@ModelAttribute("car") Car car) {
 		carDAO.save(car);
-		return "redirect:/";
+		return "redirect:/cars";
 	}
-
-//	@PostMapping
-//	public String create(@RequestParam("model") String model1, @RequestParam("color") String color,
-//						 Model model) {
-//		Car car = new Car();
-//		car.setModel(model1);
-//		car.setColor(color);
-//		model.addAttribute("car", car);
-//		return "redirect:/cars";
-//	}
-
 
 	@GetMapping("/{id}/edit")
 	public String edit( @PathVariable("id") int id, Model model) {

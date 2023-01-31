@@ -1,33 +1,46 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Cars</title>
 </head>
 <body>
 /cars
-<!--<p th:text="${message}"></p>-->
-<!--/*@thymesVar id="cars" type=""*/-->
-<!--<div th:text="${countInt}"></div>-->
-<!--<span th:if="${countInt < 6}">first-->
-<!--</span>-->
-<!--<span th:unless="${countInt < 6}">second</span>-->
-<table>
-<!--    <tbody>-->
-    <tr>
-        <th>Model</th>
-<!--        <th>Color</th>-->
-<!--        <th>ID</th>-->
-    <tr/>
-<tr th:each="car : ${cars}">
-    <td th:href="@{/{id}(id=${car.getId()})}" th:text="${car.getModel()}">car</td>
-<!--                 {/{id}(id=${car.getId()})}-->
-<!--    <div th:text="${car}"></div>-->
-<!--    <p th:text="${car.getModel()}"></p>-->
-</tr>
+<div>
 
-<!--    </tbody>-->
+<table>
+    <thead>
+        <tr>
+            <th>Model</th>
+            <th>Color</th>
+            <th>Id</th>
+
+            <th>Action</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+
+<tbody>
+    <tr th:each="car : ${cars}">
+
+        <td th:text="${car.model}">Model</td>
+        <td th:text="${car.color}">Color</td>
+        <td th:text="${car.id}">Id</td>
+
+        <td>
+            <a th:href="@{/{id}(id = ${car.getId()})}">Edit</a>
+        </td>
+        <td>
+            <form th:method="DELETE" th:action="@{/{id}(id = ${car.getId()})}">
+                <input type="submit" value="Delete">
+            </form>
+        </td>
+
+    </tr>
+</tbody>
 </table>
+</div>
+
 <hr/>
 <a href="/new"> Create new car</a>
 
