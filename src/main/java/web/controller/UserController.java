@@ -2,6 +2,7 @@ package web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import web.dao.UserDAO;
@@ -27,5 +28,13 @@ public class UserController {
         messages.add("5.2.0 version by sep'19 ");
         model.addAttribute("messages", messages);
         return "index";
+    }
+
+    @GetMapping("/list-users")
+    public String listUsers(Model model) {
+//        List<User> users = userService.getUsers();
+//        model.addAttribute("users", users);
+        model.addAttribute("users", userDAO.getUsers());
+        return "list-users";
     }
 }
