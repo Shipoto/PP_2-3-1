@@ -45,10 +45,4 @@ public class UserServiceImpl implements UserService{
     public void update(int id, User user) {
         userDao.update(id, user);
     }
-
-//    @Transactional
-//    @Override
-//    public User getUserByCar(String model, int series) {
-//        return userDao.getUserByCar(model, series);
-//    }
 }

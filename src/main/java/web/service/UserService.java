@@ -10,6 +10,4 @@ public interface UserService {
     User getOneUser(int id);
     void delete(int id);
     void update(int id, User user);
-
-//    User getUserByCar(String model, int series);
 }
