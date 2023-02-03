@@ -6,7 +6,7 @@
     <title>List of users</title>
 </head>
 <body>
-list-users
+/list-users
 
 <table>
     <tr>
@@ -26,7 +26,6 @@ list-users
         <td th:text="${user.surName}">SurName</td>
         <td th:text="${user.age}">Age</td>
         <td th:text="${user.department}">Department</td>
-        <!--        <td th:href="@{/{id}(id=${car.getId()})}" th:text="${car.getModel()}">car</td>-->
 
         <td>
             <a th:href="@{/{id}(id = ${user.getId()})}">Edit</a>
@@ -40,5 +39,9 @@ list-users
     </tr>
 
 </table>
+
+<hr/>
+<a href="/add-user"> Create new user</a>
+
 </body>
 </html>

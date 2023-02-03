@@ -21,6 +21,13 @@ public class User {
     public User() {
     }
 
+    public User(String name, String surName, int age, String department) {
+        this.name = name;
+        this.surName = surName;
+        this.age = age;
+        this.department = department;
+    }
+
     public int getId() {
         return id;
     }
